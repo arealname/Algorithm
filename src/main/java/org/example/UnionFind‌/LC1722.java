@@ -15,9 +15,6 @@ public class LC1722 {
         return fa[x];
     }
 
-
-
-
     private void union(int x, int y) {
         x = find(x);
         y = find(y);
