@@ -5,14 +5,14 @@ import java.util.Map;
 
 public class LC1722 {
 
-    private int[] fa;
+    private int[] pa;
     private int[] rank;
 
     private int find(int x) {
-        if (fa[x] != x) {
-            fa[x] = find(fa[x]);
+        if (pa[x] != x) {
+            pa[x] = find(pa[x]);
         }
-        return fa[x];
+        return pa[x];
     }
 
     private void union(int x, int y) {
@@ -24,7 +24,7 @@ public class LC1722 {
             x = y;
             y = temp;
         }
-        fa[y] = x;
+        pa[y] = x;
         if (rank[x] == rank[y]) {
             rank[x]++;
         }
@@ -32,10 +32,10 @@ public class LC1722 {
 
     public int minimumHammingDistance(int[] source, int[] target, int[][] allowedSwaps) {
         int n = source.length;
-        fa = new int[n];
+        pa = new int[n];
         rank = new int[n];
         for (int i = 0; i < n; i++) {
-            fa[i] = i;
+            pa[i] = i;
         }
 
         for (int[] pair : allowedSwaps) {
