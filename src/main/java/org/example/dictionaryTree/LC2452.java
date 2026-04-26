@@ -76,14 +76,6 @@ public class LC2452 {
         return false;
     }
 
-    public static void main(String[] args) {
-        LC2452 solution = new LC2452();
-        String[] queries = {"hello", "hallo", "hella"};
-        String[] dictionary = {"hello", "hallo", "hella", "helloo"};
-        List<String> result = solution.twoEditWords(queries, dictionary);
-        System.out.println(result); // 输出: ["hello", "hallo", "hella"]
-    }
-
 }
 
 
