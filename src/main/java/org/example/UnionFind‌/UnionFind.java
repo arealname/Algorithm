@@ -2,24 +2,24 @@ package org.example.UnionFind‌;
 
 public class UnionFind {
 
-    private int[] parent;
+    private int[] pa;
 
     private int[] rank;
 
     public UnionFind(int n) {
-        parent = new int[n];
+        pa = new int[n];
         rank = new int[n];
         for (int i = 0; i < n; i++) {
-            parent[i] = i;
+            pa[i] = i;
             rank[i] = 1;
         }
     }
 
     public int find(int x) {
-        if (parent[x] != x) {
-            parent[x] = find(parent[x]);
+        if (pa[x] != x) {
+            pa[x] = find(pa[x]);
         }
-        return parent[x];
+        return pa[x];
     }
 
     public void union(int x, int y) {
@@ -27,11 +27,11 @@ public class UnionFind {
         int rootY = find(y);
         if (rootX != rootY) {
             if (rank[rootX] > rank[rootY]) {
-                parent[rootY] = rootX;
+                pa[rootY] = rootX;
             } else if (rank[rootX] < rank[rootY]) {
-                parent[rootX] = rootY;
+                pa[rootX] = rootY;
             } else {
-                parent[rootY] = rootX;
+                pa[rootY] = rootX;
                 rank[rootX]++;
             }
         }
