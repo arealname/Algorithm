@@ -4,18 +4,18 @@ public class LC2770 {
     public int maximumJumps(int[] nums, int target) {
         int n = nums.length;
 
-        int[] dp = new int[n];
+        int[] f = new int[n];
         for (int i = 0; i < n; i++) {
-            dp[i] = -1;
+            f[i] = -1;
         }
-        dp[0] = 0;
+        f[0] = 0;
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
-                if (dp[j] != -1 && Math.abs(nums[i] - nums[j]) <= target) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                if (f[j] != -1 && Math.abs(nums[i] - nums[j]) <= target) {
+                    f[i] = Math.max(f[i], f[j] + 1);
                 }
             }
         }
-        return dp[n - 1];
+        return f[n - 1];
     }
 }
