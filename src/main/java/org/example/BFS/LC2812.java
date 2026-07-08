@@ -1,4 +1,4 @@
-package org.example.UnionFind‌;
+package org.example.BFS;
 
 import java.util.LinkedList;
 import java.util.List;
